@@ -5,8 +5,7 @@ Base [redis-monitor](https://github.com/LittlePeng/redis-monitor)
 
 说明：项目只支持RedisCluster,且RedisCluster没有设置密码。
      redis-monitor项目在我们项目的集群环境上部署不成功。
-     该项目加入了RedisCluster API的支持
-     该项目是调试成功后的初版
+     该项目加入了RedisCluster API的支持，页面上没有做改动。
 
 ## Features:
 *  cluster: support thousands of redis instances
@@ -35,22 +34,23 @@ samples:
 
 ```
 
-## Install Deps
+项目运行前需要确保Python环境可以正常使用
+
+## Install Deps 安装依赖的package
     pip install -r requirements.txt
 
+项目下载后直接放到服务器上即可直接执行 1,2 命令。 运行前提是RedisCluster服务已正常启动(需要存储监控的数据)
 ## Run
-    # 1. start redisCluster instance for stat stroage
-    redis-server --port 6379
 
-    # 2. start web portal
+    # 1. start web portal
     cd src/
     python redis_live.py
     
-    # 3. start stats collector daemon process
+    # 2. start stats collector daemon process
     cd src/
     python redis_monitor.py 
 
-    # 4. dashboard: http://127.0.0.1:8888/index.html
+    # 3. dashboard: http://127.0.0.1:8888/index.html
 
  
-
+  
