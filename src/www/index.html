@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="js/libs/bootstrap/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="js/libs/bootstrap/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="js/libs/tooltip.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>  
   
@@ -10,13 +11,13 @@
     <div class="navbar-inner">
         <div class="container-fluid">          
             <a class="brand" href="./overview.html" style="margin-left:-20px">
-              <strong>OverView</strong>
+              <strong>总览</strong>
             </a>
             <a class="brand" href="./index.html" style="background-color:red;">
-              <strong>Live</strong>
+              <strong>实时</strong>
             </a>
              <a class="brand" href="./settings.html">
-              <strong>Settings</strong>
+              <strong>设置</strong>
             </a>
             <form class="form-inline" style="float:right;margin-left:20px;margin-bottom:0px" onsubmit="return false;">
       <div style="">
@@ -58,17 +59,17 @@
     </form> 
            <span  style="display:inline-block;margin-left:20px;padding-top:10px;float:right;">
             <input id="cb_mem" value="memory" type="checkbox" checked="checked">
-            <label for="cb_mem" style="color:white;display:inline-block;">mem</label>
+            <label for="cb_mem" style="color:white;display:inline-block;">内存</label>
              <input id="cb_cmd" value="commands" type="checkbox" checked="checked">
-            <label for="cb_cmd" style="color:white;display:inline-block;">cmd</label>
+            <label for="cb_cmd" style="color:white;display:inline-block;">命令</label>
              <input id="cb_hit" value="hitrate" type="checkbox" checked="checked">
-            <label for="cb_hit" style="color:white;display:inline-block;">hit</label>
+            <label for="cb_hit" style="color:white;display:inline-block;">命中率</label>
              <input id="cb_keys" value="keyspace" type="checkbox" checked="checked">
-            <label for="cb_keys" style="color:white;display:inline-block;">keys</label>
+            <label for="cb_keys" style="color:white;display:inline-block;">键空间</label>
             <input id="cb_expire" value="kick" type="checkbox" checked="checked">
-            <label for="cb_expire" style="color:white;display:inline-block;">expire</label>
+            <label for="cb_expire" style="color:white;display:inline-block;">过期</label>
             <input id="cb_slowlog" value="slowlog" type="checkbox">
-            <label for="cb_slowlog" style="color:white;display:inline-block;">slowlog</label>
+            <label for="cb_slowlog" style="color:white;display:inline-block;">日志</label>
             </span>
             <select id="server-list" class="nav pull-right span2 server-list" style="width:220px">
               <option>redis server..</option>                   
@@ -195,7 +196,7 @@
 		  })
   </script>
 
-  <!-- Info widget template
+  <!-- 信息展示
   ================================================== -->
   <script type="text/x-handlebars-template" id="info-widget-template">
     <div class="row-fluid">
@@ -205,23 +206,15 @@
 			<td>
               <div class="info-box" id="service-status">
                 <center>
-                  <p>STATUS</p>
+                  <p>角色</p>
                   <p class="well-value">{{role}}</p>
                 </center>
               </div>
             </td>
- 	<!--		<td>
-              <div class="info-box" id="misc-info">
-                <center>
-                  <p>MISC</p>
-                  <p class="well-value">...</p>
-                </center>
-              </div>
-            </td>-->
             <td>
               <div class="info-box">
                 <center>
-                  <p>USED MEMORY</p>
+                  <p>已使用内存</p>
                   <p class="well-value">{{used_memory_human}}</p>
                 </center>
               </div>
@@ -229,7 +222,7 @@
             <td>
               <div class="info-box" id="total-keys">
                 <center>         
-                  <p>TOTAL KEYS</p>
+                  <p>键总量</p>
                   <p class="well-value">{{total_keys}}</p>
                 </center>       
               </div>
@@ -237,7 +230,7 @@
             <td>
               <div class="info-box">
                 <center>
-                  <p>CLIENTS</p>
+                  <p>连接客户端</p>
                   <p class="well-value">{{connected_clients}}</p>
                 </center>
               </div>
@@ -245,7 +238,7 @@
             <td>
               <div class="info-box">
                 <center>
-                  <p>COMMANDS PROCESSED</p>
+                  <p>执行的命令总数</p>
                   <p class="well-value">{{total_commands_processed_human}}</p>
                 </center>
               </div>
@@ -253,7 +246,7 @@
             <td>
               <div class="info-box">
                 <center>
-                  <p>UPTIME</p>
+                  <p>运行时长</p>
                   <p class="well-value">{{uptime}}</p>
                 </center>
               </div>
@@ -288,7 +281,7 @@
 
   <!-- Memory widget template 
   ================================================== -->
-  <script type="text/x-handlebars-template" id="memory-widget-template">
+ <!-- <script type="text/x-handlebars-template" id="memory-widget-template">
     <div class="span12">
       <div class="row-fluid">              
         <div class="span4">
@@ -298,7 +291,7 @@
       </div>
       <div id="memory-widget-chart"></div>         
     </div>
-  </script>
+  </script>-->
 
   <!-- Commands widget template 
   ================================================== -->
@@ -306,7 +299,7 @@
 	<div class="span12">
       <div class="row-fluid">              
         <div class="span4">
-          <h3>Memory Consumption</h3>              
+          <h3>内存使用情况</h3>
         </div>
       
       </div>
@@ -315,7 +308,7 @@
     <div class="span12"  style="margin-left:0px">
       <div class="row-fluid">              
         <div class="span4">
-          <h3>Commands Processed</h3>              
+          <h3>执行命令数</h3>
         </div>
       
       </div>
@@ -324,7 +317,7 @@
 	<div class="span12" style="margin-left:0px">
       <div class="row-fluid">              
         <div class="span4">
-          <h3>HitRate</h3>              
+          <h3>键命中率</h3>
         </div>
       
       </div>
@@ -333,7 +326,7 @@
 	<div class="span12" style="margin-left:0px">
       <div class="row-fluid">              
         <div class="span4">
-          <h3>KeySpace</h3>              
+          <h3>键空间</h3>
         </div>
       
       </div>
@@ -342,7 +335,7 @@
 	<div class="span12" style="margin-left:0px">
       <div class="row-fluid">              
         <div class="span4">
-          <h3>Expired&Evicted</h3>              
+          <h3>键的过期和删除情况</h3>
         </div>
       
       </div>
@@ -356,7 +349,7 @@
     <div class="span12" style="margin-left:0px">
       <div class="row-fluid">              
         <div class="span4">
-          <h3>Replication</h3>              
+          <h3>备机</h3>
         </div>
 <table class="dataintable" style="min-width:1024px;margin-left:100px">
 <tbody><tr>
@@ -402,7 +395,7 @@
     <div class="row-fluid">              
       <div class="span6">
         <h3>Top Keys</h3>                  
-      </div>      
+      </div>
       <div class="" style="float:right">
         {{> date-dropdown}}                                
       </div>      

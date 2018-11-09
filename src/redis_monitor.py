@@ -183,7 +183,7 @@ class InfoThread(threading.Thread):
     def CheckMasterStatus(self, redis_info, current_time):
         role = redis_info["role"]
         role_status = {}
-        
+
         if(role == "master"):
             connected_slaves = (int)(redis_info["connected_slaves"])
             slaves = ""
@@ -200,14 +200,19 @@ class InfoThread(threading.Thread):
                        "master_host_port":master_host + ":" + master_port,
                        "master_link_status":master_link_status,
                        "master_sync_in_progress":master_sync_in_progress }
-        
+
         role_cur = json.dumps(role_status)
+        print self.id
+        print role_cur
+        print self.last_role_status
         if(role_cur != self.last_role_status):
             # monitor first start,not save
+            print self.id
+            print self.last_role_status
             if(self.last_role_status != ""):
                 self.stats_provider.save_status_info(self.id, current_time, role_status)
                 self.sendslavesms(role_status, self.last_role)
-                
+
             self.last_role_status = role_cur
             self.last_role = role_status
                     
@@ -270,7 +275,7 @@ class redis_monitor(daemonized):
                 except Exception:
                     print traceback.format_exc()
                     
-                time.sleep(10)
+                time.sleep(300)
                 doitems += 1
                 
                 # try collection DB like:redis bgrewriteaof

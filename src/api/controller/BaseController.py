@@ -15,9 +15,9 @@ class BaseController(tornado.web.RequestHandler):
             info.update({
                 "server_name"        : server,
                 "status"             : info.get("role"),
-                "last_save_humanized": info.get("last_save_time")
+                "last_save_humanized": info.get("last_save_time"),
+                "total_keys"         : connection.dbsize()
             })
-            
             #master status
             role = info["role"]
             slaves=""

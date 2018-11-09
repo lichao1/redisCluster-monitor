@@ -15,33 +15,33 @@ var CommandsWidget = BaseWidget.extend({
       // chart  0
       this.chart0 = new google.visualization.LineChart($("#memory-widget-chart").empty().get(0))
       this.dataTable0 = new google.visualization.DataTable()
-      this.dataTable0.addColumn('datetime', 'datetime')
-      this.dataTable0.addColumn('number', 'Peak')
-      this.dataTable0.addColumn('number', 'Current')
+      this.dataTable0.addColumn('datetime', '时间')
+      this.dataTable0.addColumn('number', '高峰值')
+      this.dataTable0.addColumn('number', '当前值')
       
       // chart 1
       this.chart = new google.visualization.AreaChart($("#commands-widget-chart").empty().get(0))
       this.dataTable = new google.visualization.DataTable()
-      this.dataTable.addColumn('datetime', 'datetime')
-      this.dataTable.addColumn('number', 'Commands Processed')
+      this.dataTable.addColumn('datetime', '时间')
+      this.dataTable.addColumn('number', ' 命令数')
       
       // chart 2
       this.chart2 = new google.visualization.AreaChart($("#hitrate-widget-chart").empty().get(0))
       this.dataTable2 = new google.visualization.DataTable()
-      this.dataTable2.addColumn('datetime', 'datetime')
-      this.dataTable2.addColumn('number', 'Hit Rate')
+      this.dataTable2.addColumn('datetime', '时间')
+      this.dataTable2.addColumn('number', '命中率')
       //chart 3
       this.chart3 = new google.visualization.LineChart($("#keyspace-widget-chart").empty().get(0))
       this.dataTable3 = new google.visualization.DataTable()
-      this.dataTable3.addColumn('datetime', 'datetime')
-      this.dataTable3.addColumn('number', 'persists')
-      this.dataTable3.addColumn('number', 'expires')
+      this.dataTable3.addColumn('datetime', '时间')
+      this.dataTable3.addColumn('number', '正常')
+      this.dataTable3.addColumn('number', '过期')
      //chart 4
       this.chart4 = new google.visualization.LineChart($("#kick-widget-chart").empty().get(0))
       this.dataTable4 = new google.visualization.DataTable()
-      this.dataTable4.addColumn('datetime', 'datetime')
-      this.dataTable4.addColumn('number', 'expired')
-      this.dataTable4.addColumn('number', 'evicted')
+      this.dataTable4.addColumn('datetime', '时间')
+      this.dataTable4.addColumn('number', '过期')
+      this.dataTable4.addColumn('number', '删除')
     }
 
   , render : function() {
@@ -66,9 +66,9 @@ var CommandsWidget = BaseWidget.extend({
           if(self.dataTable)
             self.dataTable.addRow( [recordDate, obj[1]] )
           if(self.dataTable2)
-            self.dataTable2.addRow( [recordDate, obj[6]] )	
+            self.dataTable2.addRow( [recordDate, obj[6]] )
           if(self.dataTable3)
-            self.dataTable3.addRow( [recordDate, obj[3],obj[2]] )	
+            self.dataTable3.addRow( [recordDate, obj[3],obj[2]] )
           if(self.dataTable4)
             self.dataTable4.addRow( [recordDate, obj[4],obj[5]] )	
       })

@@ -5,22 +5,23 @@
    <link rel="stylesheet" href="static/css/reset.css" type="text/css" media="screen, projection" />
    <link rel="stylesheet" href="static/css/style.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="js/libs/tooltip.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>  
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">          
             <a class="brand" href="./overview.html" style="background-color:red;margin-left:-20px">
-              <strong>OverView</strong>
+              <strong>总览</strong>
             </a>
             <a class="brand" href="./index.html">
-              <strong>Live</strong>
+              <strong>实时</strong>
             </a>
              <a class="brand" href="./settings.html">
-              <strong>Settings</strong>
+              <strong>设置</strong>
             </a>
              <select id="server-group" class="nav pull-right span2 server-list" style="width:160px;float:left">
-              <option value="all">All group</option>  
+              <option value="all">所有组</option>
             </select>
         </div>
     </div>
@@ -60,7 +61,7 @@
 			    update();
 			}
 			}
-		}, 500);
+		}, 300000);
 		
 		
 		function update() {
@@ -109,9 +110,7 @@
 				lastIp=currentIp;
 				
 				$("#container-panel").append(createNode(key,item,isNewLine));
-				//html.push(createNode(key,item,isNewLine));
 			});
-		 //$("#container-panel").html(html.join(''));
 		 $.each(data,function(id,item){
 				var key=item.addr;
 				var temp=key;
@@ -170,7 +169,7 @@
 						 <div class="detail_line">uptime in days: <span class="line_span" style="margin-left: 0px;" id="uptime_in_days">' + stat.uptime_in_days + '</span></div>\
 			            <div class="detail_line">uptime in seconds: <span class="line_span" style="margin-left: 0px;" id="uptime_in_seconds">' + stat.uptime_in_seconds + '</span></div>\
 			        	<div class="detail_line">connected clients: <span class="line_span" style="margin-left: 0px;" id="connected_clients">' + stat.connected_clients + '</span></div>\
-			        	<a href="" name="toggle" style="margin-top:2px;display:block;float:right;"><strong>toggle detail<strong></a>\
+			        	<a href="#" name="toggle" style="margin-top:2px;display:block;float:right;"><strong>toggle detail<strong></a>\
 			        </div>\
 			    </div>';
 		    }

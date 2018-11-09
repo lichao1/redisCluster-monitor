@@ -5,7 +5,7 @@ Base [redis-monitor](https://github.com/LittlePeng/redis-monitor)
 
 说明：项目只支持RedisCluster,且RedisCluster没有设置密码。
      redis-monitor项目在我们项目的集群环境上部署不成功。
-     该项目加入了RedisCluster API的支持，页面上没有做改动。
+     该项目加入了RedisCluster API的支持，页面上做了汉化。
 
 ## Features:
 *  cluster: support thousands of redis instances

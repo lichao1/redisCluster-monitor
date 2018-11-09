@@ -7,39 +7,15 @@ class InfoController(BaseController):
     def get(self):
         """Serves a GET request.
         """
-
         server = self.get_argument("server").split(':')
 
 	for redis_server in settings.get_redis_servers():
 	  if (redis_server["server"] == server[0]) and (int(redis_server["port"]) == int(server[1])):
 	    break
-
         redis_info = self.getStatsPerServer(server)
-        databases=[]
-
-        for key in sorted(redis_info.keys()):
-            if key.startswith("db"):
-                database = redis_info[key]
-                database['name']=key
-                databases.append(database)
-
-        total_keys=0
-        for database in databases:
-            total_keys+=database.get("keys")
-
-        if(total_keys==0):
-            databases=[{"name" : "db0", "keys" : "0", "expires" : "0"}]
-
-        redis_info['databases'] = databases
-        redis_info['total_keys']= self.shorten_number(total_keys)
-
         uptime_seconds = redis_info['uptime_in_seconds']
         redis_info['uptime'] = self.shorten_time(uptime_seconds)
-
-        commands_processed = redis_info['total_commands_processed']
-        commands_processed = self.shorten_number(commands_processed)
-        redis_info['total_commands_processed_human'] = commands_processed
-
+        redis_info['total_commands_processed_human'] = redis_info['total_commands_processed']
         self.write(redis_info)
 
     def shorten_time(self, seconds):

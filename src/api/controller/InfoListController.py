@@ -21,7 +21,7 @@ class InfoListController(BaseController):
             if info.get("status") == 'down':
                 screen_strategy = 'hidden'
     
-            info.update({ "screen_strategy": screen_strategy,})
+            info.update({ "screen_strategy": screen_strategy})
 
             response["data"].append(info)
 
